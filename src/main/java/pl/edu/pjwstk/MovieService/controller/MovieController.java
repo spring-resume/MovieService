@@ -1,5 +1,7 @@
 package pl.edu.pjwstk.MovieService.controller;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.pjwstk.MovieService.model.Movie;
@@ -15,36 +17,52 @@ public class MovieController {
         this.movieService = movieService;
     }
 
+    @ApiOperation(value = "Find all movies")
     @GetMapping("/movies")
     public ResponseEntity<List<Movie>> getAllMovies() {
         return ResponseEntity.status(200)
                 .body(movieService.takeAllMovies());
     }
 
+    @ApiOperation(value = "Find movie by id", notes = "provide information about movie by id")
     @GetMapping("/movie/{id}")
-    public ResponseEntity<Movie> getMovieWithId(@PathVariable Long id) {
+    public ResponseEntity<Movie> getMovieWithId(@ApiParam(value = "unique id of movie") @PathVariable Long id) {
         return ResponseEntity.ok(movieService.takeMovie(id));
     }
 
-    @PostMapping("/add/movie")
-    public ResponseEntity<String> addMovie(@RequestBody Movie movie) {
+    @ApiOperation(value = "Add movie", notes = "provide movie by json")
+    @PostMapping("/movie")
+    public ResponseEntity<Movie> addMovie(@ApiParam(value = "movie as json format") @RequestBody Movie movie) {
         return ResponseEntity.ok(movieService.addAndPrintMovie(movie));
     }
 
-    @PutMapping("/update/movie/{id}")
-    public ResponseEntity<Movie> updateMovie(@RequestBody Movie movie, @PathVariable Long id) {
+    @ApiOperation(value = "Update movie by id", notes = "provide information about movie by id")
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Movie> updateMovie(
+            @ApiParam(value = "movie as json format") @RequestBody Movie movie,
+            @ApiParam(value = "unique id of movie") @PathVariable Long id
+    ) {
         return ResponseEntity.ok(movieService.updateExistMovie(movie, id));
     }
 
-    @DeleteMapping("/delete/movie/{id}")
-    public ResponseEntity<Void> deleteMovie(@PathVariable Long id) {
+    @ApiOperation(value = "Delete movie by id", notes = "provide information about movie by id")
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteMovie(@ApiParam(value = "unique id of movie") @PathVariable Long id) {
         movieService.deleteExistMovie(id);
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/change-field-movie/{id}")
-    public ResponseEntity<Movie> changeBoolean(@PathVariable Long id){
+    @ApiOperation(value = "Rent movie by id", notes = "provide information about movie by id")
+    @PutMapping("/rent/{id}")
+    public ResponseEntity<Movie> rentMovie(@ApiParam(value = "unique id of movie") @PathVariable Long id) {
         return ResponseEntity.status(200)
-                .body(movieService.changeAvailableMovie(id));
+                .body(movieService.rentMovie(id));
+    }
+
+    @ApiOperation(value = "Return movie by id", notes = "provide information about movie by id")
+    @PutMapping("/return/{id}")
+    public ResponseEntity<Movie> returnMovie(@ApiParam(value = "unique id of movie") @PathVariable Long id) {
+        return ResponseEntity.status(200)
+                .body(movieService.returnMovie(id));
     }
 }
