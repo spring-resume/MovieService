@@ -1,16 +1,24 @@
 package pl.edu.pjwstk.MovieService.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 
+@ApiModel("Data of Movie")
 @Entity
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(position = 1, value = "unique id of movie")
     private Long id;
+    @ApiModelProperty(position = 2, value = "name of movie")
     private String name;
     @Enumerated(EnumType.STRING)
+    @ApiModelProperty(position = 3, value = "category of movie")
     private CategoryMovie category;
-    @Column(nullable = false, columnDefinition = "TINYINT", length = 1)
+    @Column(columnDefinition = "TINYINT")
+    @ApiModelProperty(position = 4, value = "availability of movie")
     private boolean isAvailable;
 
     public Movie() {
