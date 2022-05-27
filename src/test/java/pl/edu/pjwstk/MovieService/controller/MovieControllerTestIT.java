@@ -20,9 +20,6 @@ class MovieControllerTestIT {
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private MovieService movieService;
-
     @DisplayName("Should invoke /movies and return movies")
     @Test
     void shouldReturnMovies() throws Exception {
