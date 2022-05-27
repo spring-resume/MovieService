@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import pl.edu.pjwstk.MovieService.exception.NotChangedAvailabilityException;
 import pl.edu.pjwstk.MovieService.exception.NotFoundMovieException;
+import pl.edu.pjwstk.MovieService.exception.NotRentMovieException;
+import pl.edu.pjwstk.MovieService.exception.NotReturnMovieException;
 
 @RestControllerAdvice
 public class GlobalHandlerException {
