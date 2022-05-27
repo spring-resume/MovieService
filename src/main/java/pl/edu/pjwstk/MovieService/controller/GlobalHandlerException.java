@@ -22,7 +22,12 @@ public class GlobalHandlerException {
 
     @ExceptionHandler(NotChangedAvailabilityException.class)
     public ResponseEntity<String> handleInvalidChangeAvailabilityMovieException(NotChangedAvailabilityException ex) {
-        return ResponseEntity.status(406).body(ex.getMessage());
+        return ResponseEntity.status(404).body(ex.getMessage());
+    }
+
+    @ExceptionHandler(NotRentMovieException.class)
+    public ResponseEntity<String> handleNotRentException(NotRentMovieException ex) {
+        return ResponseEntity.status(404).body(ex.getMessage());
     }
 
 //    @ExceptionHandler(NotRentException.class)
