@@ -29,10 +29,10 @@ public class SwaggerConfig {
     private ApiInfo myApiInfo() {
         return new ApiInfo(
                 "MovieService REST API",
-                "lorem ipsum",
+                "MovieService REST API",
                 "v1.00",
                 "MovieService",
-                new Contact("Jakub Słomiński", "https://www.example.com", "myaddress@company.com"),
+                new Contact("Jakub Słomiński", "https://www.example.com", "jakub.slominski.job@gmail"),
                 "my own LicenseX123", "www.example123.com", Collections.emptyList());
 
     }
