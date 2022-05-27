@@ -30,8 +30,8 @@ public class GlobalHandlerException {
         return ResponseEntity.status(404).body(ex.getMessage());
     }
 
-//    @ExceptionHandler(NotRentException.class)
-//    public ResponseEntity<String> handleNotRentException(NotRentException ex) {
-//        return ResponseEntity.status(404).body(ex.getMessage());
-//    }
+    @ExceptionHandler(NotReturnMovieException.class)
+    public ResponseEntity<String> handleNotReturnException(NotReturnMovieException ex) {
+        return ResponseEntity.status(404).body(ex.getMessage());
+    }
 }
