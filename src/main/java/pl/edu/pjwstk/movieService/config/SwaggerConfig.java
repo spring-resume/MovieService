@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.MovieService.config;
+package pl.edu.pjwstk.movieService.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

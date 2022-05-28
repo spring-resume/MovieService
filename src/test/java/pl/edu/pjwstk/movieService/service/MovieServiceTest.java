@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.MovieService.service;
+package pl.edu.pjwstk.movieService.service;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -6,9 +6,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.ActiveProfiles;
-import pl.edu.pjwstk.MovieService.exception.NotFoundMovieException;
-import pl.edu.pjwstk.MovieService.model.CategoryMovie;
-import pl.edu.pjwstk.MovieService.model.Movie;
+import pl.edu.pjwstk.movieService.exception.NotFoundMovieException;
+import pl.edu.pjwstk.movieService.model.CategoryMovie;
+import pl.edu.pjwstk.movieService.model.Movie;
 
 import java.util.List;
 
@@ -16,8 +16,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-import static pl.edu.pjwstk.MovieService.model.CategoryMovie.COMEDY;
-import static pl.edu.pjwstk.MovieService.model.CategoryMovie.HORROR;
+import static pl.edu.pjwstk.movieService.model.CategoryMovie.COMEDY;
+import static pl.edu.pjwstk.movieService.model.CategoryMovie.HORROR;
 
 @ActiveProfiles("prod")
 @ExtendWith(MockitoExtension.class)

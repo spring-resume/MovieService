@@ -1,9 +1,9 @@
-package pl.edu.pjwstk.MovieService.repository;
+package pl.edu.pjwstk.movieService.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import pl.edu.pjwstk.MovieService.model.Movie;
+import pl.edu.pjwstk.movieService.model.Movie;
 
 import javax.transaction.Transactional;
 import java.util.List;

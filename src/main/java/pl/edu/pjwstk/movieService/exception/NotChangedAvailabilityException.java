@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.MovieService.exception;
+package pl.edu.pjwstk.movieService.exception;
 
 public class NotChangedAvailabilityException extends RuntimeException {
     public NotChangedAvailabilityException() {

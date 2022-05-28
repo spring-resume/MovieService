@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.MovieService.model;
+package pl.edu.pjwstk.movieService.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

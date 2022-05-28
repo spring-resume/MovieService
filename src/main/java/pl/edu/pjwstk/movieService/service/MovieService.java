@@ -1,12 +1,12 @@
-package pl.edu.pjwstk.MovieService.service;
+package pl.edu.pjwstk.movieService.service;
 
 import org.springframework.stereotype.Service;
-import pl.edu.pjwstk.MovieService.exception.NotChangedAvailabilityException;
-import pl.edu.pjwstk.MovieService.exception.NotFoundMovieException;
-import pl.edu.pjwstk.MovieService.exception.NotRentMovieException;
-import pl.edu.pjwstk.MovieService.exception.NotReturnMovieException;
-import pl.edu.pjwstk.MovieService.model.Movie;
-import pl.edu.pjwstk.MovieService.repository.MovieRepository;
+import pl.edu.pjwstk.movieService.exception.NotChangedAvailabilityException;
+import pl.edu.pjwstk.movieService.exception.NotFoundMovieException;
+import pl.edu.pjwstk.movieService.exception.NotRentMovieException;
+import pl.edu.pjwstk.movieService.exception.NotReturnMovieException;
+import pl.edu.pjwstk.movieService.model.Movie;
+import pl.edu.pjwstk.movieService.repository.MovieRepository;
 
 import java.util.List;
 import java.util.Optional;

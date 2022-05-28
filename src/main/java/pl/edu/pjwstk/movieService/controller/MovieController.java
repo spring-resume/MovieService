@@ -1,11 +1,11 @@
-package pl.edu.pjwstk.MovieService.controller;
+package pl.edu.pjwstk.movieService.controller;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.edu.pjwstk.MovieService.model.Movie;
-import pl.edu.pjwstk.MovieService.service.MovieService;
+import pl.edu.pjwstk.movieService.model.Movie;
+import pl.edu.pjwstk.movieService.service.MovieService;
 
 import java.util.List;
 

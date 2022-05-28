@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.MovieService.model;
+package pl.edu.pjwstk.movieService.model;
 
 public enum CategoryMovie {
     HORROR, COMEDY, THRILLER, DRAMA, ACTION, ROMANTIC
