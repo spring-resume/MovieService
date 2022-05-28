@@ -59,7 +59,7 @@ public class MovieService {
 //    public Movie rentMovie(Long id) {
 //        if(takeMovie(id).isAvailable())
 //         movieRepository.changeAvailable(false, id);
-//        else throw new NotRentException(id);
+//        else throw new NotRentMovieException(id);
 //        return checkAvailabilityAfterRent(id);
 //}
 
