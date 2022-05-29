@@ -4,7 +4,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import pl.edu.pjwstk.movieService.exception.NotChangedAvailabilityException;
 import pl.edu.pjwstk.movieService.exception.NotFoundMovieException;
 import pl.edu.pjwstk.movieService.exception.NotRentMovieException;
 import pl.edu.pjwstk.movieService.exception.NotReturnMovieException;
@@ -20,11 +19,6 @@ public class GlobalHandlerException {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<String> handleInvalidInputMovieException() {
         return ResponseEntity.status(400).body("Nieprawidłowe dane wejściowe");
-    }
-
-    @ExceptionHandler(NotChangedAvailabilityException.class)
-    public ResponseEntity<String> handleInvalidChangeAvailabilityMovieException(NotChangedAvailabilityException ex) {
-        return ResponseEntity.status(404).body(ex.getMessage());
     }
 
     @ExceptionHandler(NotRentMovieException.class)

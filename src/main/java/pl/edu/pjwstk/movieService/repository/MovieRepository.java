@@ -24,12 +24,13 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     @SuppressWarnings("unchecked")
     Movie save(Movie entity);
 
+
     @Transactional
     @Modifying
     @Query("UPDATE Movie m SET m.isAvailable=:b WHERE m.id=:id")
     void changeAvailable(boolean b, Long id);
 
-    @Query("SELECT m.isAvailable FROM Movie m WHERE m.id=:id ")
+    @Query("SELECT m.isAvailable FROM Movie m WHERE m.id=:id")
     boolean checkByAvailable(Long id);
 
 }

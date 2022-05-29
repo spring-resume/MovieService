@@ -19,7 +19,6 @@ import static org.mockito.Mockito.*;
 import static pl.edu.pjwstk.movieService.model.CategoryMovie.COMEDY;
 import static pl.edu.pjwstk.movieService.model.CategoryMovie.HORROR;
 
-@ActiveProfiles("prod")
 @ExtendWith(MockitoExtension.class)
 class MovieServiceTest {
 

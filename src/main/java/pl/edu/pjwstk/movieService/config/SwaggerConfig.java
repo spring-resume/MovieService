@@ -20,7 +20,7 @@ public class SwaggerConfig {
     public Docket atividadeApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("pl.edu.pjwstk.MovieService"))
+                .apis(RequestHandlerSelectors.basePackage("pl.edu.pjwstk.movieService"))
                 .paths(PathSelectors.any())
                 .build().apiInfo(myApiInfo());
 
