@@ -4,6 +4,8 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
-    <include file="0001_create_table_movie.xml" relativeToChangelogFile="true"/>
+    <include file="27.05.2022/0001_create_table_movie.xml" relativeToChangelogFile="true"/>
+    <include file="10.06.2022/0002_add_local_date_time_column.xml" relativeToChangelogFile="true"/>
+    <include file="10.06.2022/0003_create_table_users.xml" relativeToChangelogFile="true"/>
     <include file="testdata/testdata.sql" relativeToChangelogFile="true" context="dev"/>
 </databaseChangeLog>

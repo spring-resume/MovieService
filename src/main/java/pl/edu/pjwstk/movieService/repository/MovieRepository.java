@@ -6,24 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import pl.edu.pjwstk.movieService.model.Movie;
 
 import javax.transaction.Transactional;
-import java.util.List;
-import java.util.Optional;
 
 public interface MovieRepository extends JpaRepository<Movie, Long> {
-
-    @Override
-    List<Movie> findAll();
-
-    @Override
-    Optional<Movie> findById(Long id);
-
-    @Override
-    void delete(Movie entity);
-
-    @Override
-    @SuppressWarnings("unchecked")
-    Movie save(Movie entity);
-
 
     @Transactional
     @Modifying

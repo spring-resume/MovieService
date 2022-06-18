@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.test.context.ActiveProfiles;
 import pl.edu.pjwstk.movieService.exception.NotFoundMovieException;
 import pl.edu.pjwstk.movieService.model.CategoryMovie;
 import pl.edu.pjwstk.movieService.model.Movie;
+import pl.edu.pjwstk.movieService.model.dto.MovieDto;
 
 import java.util.List;
 
@@ -28,9 +28,9 @@ class MovieServiceTest {
     @DisplayName("Should find all movies from DB")
     @Test
     public void shouldFindAllMovies() {
-        when(movieService.takeAllMovies()).thenReturn(List.of(new Movie()));
+        when(movieService.takeAllMovies()).thenReturn(List.of(new MovieDto()));
 
-        List<Movie> movies = movieService.takeAllMovies();
+        List<MovieDto> movies = movieService.takeAllMovies();
 
         assertThat(movies).hasSize(1);
     }
@@ -50,11 +50,11 @@ class MovieServiceTest {
     void shouldSaveMovie() {
         Movie some_film = new Movie("Some film", COMEDY, true);
         when(movieService.addAndPrintMovie(some_film))
-                .thenReturn(new Movie("Some film", COMEDY, true));
+                .thenReturn(new MovieDto(1000000L,"Some film", COMEDY, true));
 
-        Movie save = movieService.addAndPrintMovie(some_film);
+        MovieDto save = movieService.addAndPrintMovie(some_film);
 
-        assertThat(save.getName()).isEqualTo("Some film");
+        assertThat(save.getName()).isEqualTo(some_film.getName());
     }
 
     @DisplayName("Should return name of movie by id")
@@ -71,7 +71,7 @@ class MovieServiceTest {
     @DisplayName("Should can return movie")
     @Test
     void shouldReturnMovie() {
-        when(movieService.returnMovie(2L)).thenReturn(new Movie("some title", HORROR, true));
+        when(movieService.returnMovie(2L)).thenReturn(new MovieDto(2L,"some title", HORROR, true));
 
         boolean available = movieService.returnMovie(2L).isAvailable();
 
@@ -92,7 +92,7 @@ class MovieServiceTest {
     @DisplayName("Should can rent movie")
     @Test
     void shouldRentMovie() {
-        when(movieService.rentMovie(1L)).thenReturn(new Movie("some title", HORROR, false));
+        when(movieService.rentMovie(1L)).thenReturn(new MovieDto(1L,"some title", HORROR, false));
 
         boolean available = movieService.rentMovie(1L).isAvailable();
 
@@ -104,7 +104,7 @@ class MovieServiceTest {
     public void shouldNotFindAnything() {
         when(movieService.takeAllMovies()).thenReturn(List.of());
 
-        List<Movie> all = movieService.takeAllMovies();
+        List<MovieDto> all = movieService.takeAllMovies();
 
         assertThat(all).isEmpty();
     }

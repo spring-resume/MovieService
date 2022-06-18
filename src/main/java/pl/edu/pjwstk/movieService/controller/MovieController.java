@@ -5,11 +5,13 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.pjwstk.movieService.model.Movie;
+import pl.edu.pjwstk.movieService.model.dto.MovieDto;
 import pl.edu.pjwstk.movieService.service.MovieService;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 public class MovieController {
     private final MovieService movieService;
 
@@ -19,26 +21,31 @@ public class MovieController {
 
     @ApiOperation(value = "Find all movies")
     @GetMapping("/movies")
-    public ResponseEntity<List<Movie>> getAllMovies() {
+    public ResponseEntity<List<MovieDto>> getAllMovies() {
         return ResponseEntity.status(200)
                 .body(movieService.takeAllMovies());
+    }
+    @GetMapping("/movies-test")
+    public ResponseEntity<List<Movie>> test() {
+        return ResponseEntity.status(200)
+                .body(movieService.takeAllMoviesTest());
     }
 
     @ApiOperation(value = "Find movie by id", notes = "provide information about movie by id")
     @GetMapping("/movie/{id}")
-    public ResponseEntity<Movie> getMovieWithId(@ApiParam(value = "unique id of movie") @PathVariable Long id) {
-        return ResponseEntity.ok(movieService.takeMovie(id));
+    public ResponseEntity<MovieDto> getMovieWithId(@ApiParam(value = "unique id of movie") @PathVariable Long id) {
+        return ResponseEntity.ok(movieService.findMovie(id));
     }
 
     @ApiOperation(value = "Add movie", notes = "provide movie by json")
     @PostMapping("/movie")
-    public ResponseEntity<Movie> addMovie(@ApiParam(value = "movie as json format") @RequestBody Movie movie) {
+    public ResponseEntity<MovieDto> addMovie(@ApiParam(value = "movie as json format") @RequestBody Movie movie) {
         return ResponseEntity.ok(movieService.addAndPrintMovie(movie));
     }
 
     @ApiOperation(value = "Update movie by id", notes = "provide information about movie by id")
     @PutMapping("/update/{id}")
-    public ResponseEntity<Movie> updateMovie(
+    public ResponseEntity<MovieDto> updateMovie(
             @ApiParam(value = "movie as json format") @RequestBody Movie movie,
             @ApiParam(value = "unique id of movie") @PathVariable Long id
     ) {
@@ -54,14 +61,14 @@ public class MovieController {
 
     @ApiOperation(value = "Rent movie by id", notes = "provide information about movie by id")
     @PutMapping("/rent/{id}")
-    public ResponseEntity<Movie> rentMovie(@ApiParam(value = "unique id of movie") @PathVariable Long id) {
+    public ResponseEntity<MovieDto> rentMovie(@ApiParam(value = "unique id of movie") @PathVariable Long id) {
         return ResponseEntity.status(200)
                 .body(movieService.rentMovie(id));
     }
 
     @ApiOperation(value = "Return movie by id", notes = "provide information about movie by id")
     @PutMapping("/return/{id}")
-    public ResponseEntity<Movie> returnMovie(@ApiParam(value = "unique id of movie") @PathVariable Long id) {
+    public ResponseEntity<MovieDto> returnMovie(@ApiParam(value = "unique id of movie") @PathVariable Long id) {
         return ResponseEntity.status(200)
                 .body(movieService.returnMovie(id));
     }

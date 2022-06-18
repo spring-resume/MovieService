@@ -1,11 +1,15 @@
 package pl.edu.pjwstk.movieService.model;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
-@ApiModel("Data of Movie")
+@ApiModel
 @Entity
 public class Movie {
     @Id
@@ -20,6 +24,8 @@ public class Movie {
     @Column(columnDefinition = "TINYINT")
     @ApiModelProperty(position = 4, value = "availability of movie")
     private boolean isAvailable;
+    @ApiModelProperty(position = 5, value = "date and time created of movie ")
+    private LocalDateTime createdAt;
 
     public Movie() {
     }
@@ -55,13 +61,20 @@ public class Movie {
         this.category = category;
     }
 
-
     public boolean isAvailable() {
         return isAvailable;
     }
 
     public void setAvailable(boolean available) {
         isAvailable = available;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     @Override
